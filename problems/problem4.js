@@ -20,12 +20,15 @@ for(var number = largest; number >= 9009; number--){
     reversedNumber = parseInt ( number.toString().reverseStr() );
     if(i === reversedNumber ){
         for(var divider = 999; divider >= 100; divider--){
+
             if( number%divider === 0 && Math.nLength(number/divider) === 3){
                 palindrome = number;
                 finished = true;
                 break;
             }
-
+            if ((number / divider) > 999 || number*number < divider) {
+                break;
+            }
         }
         if(finished){
             document.write(palindrome+'\n');
